@@ -96,8 +96,8 @@ inline int64_t FutureDrift(int64_t nTime, int nHeight) { return IsProtocolV2(nHe
 
 inline unsigned int GetTargetSpacing(int nHeight) { return IsProtocolV2(nHeight) ? 60 : 60; }
 
-static const int64_t COIN_YEAR_REWARD = 0.20 * COIN;  // 20% annual interest
 static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.20 * COIN;  // 20% annual interest
+static const int64_t MAX_MINT_PROOF_OF_STAKEV2 = 0.07 * COIN;  // 7% annual interest
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
@@ -170,7 +170,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles);
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int64_t nFees);
-int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int64_t nValueIn, uint256 prevHash);
+int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int64_t nValueIn, uint256 prevHash, int64_t nTime);
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
 bool IsInitialBlockDownload();

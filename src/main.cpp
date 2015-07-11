@@ -1152,19 +1152,26 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 }
 
 // miner's coin stake reward based on coin age spent (coin-days)
-int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int64_t nValueIn, uint256 prevHash)
+int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int64_t nValueIn, uint256 prevHash, int64_t nTime)
 {
 	std::string cseed_str = prevHash.ToString().substr(7,7);
     const char* cseed = cseed_str.c_str();
     long seed = hex2long(cseed);
     int rand = generateMTRandom(seed, 100);
     int64_t nRewardCoinYear;
-
+	
+	if(nTime < 1436965200 || TestNet()) {	// Wed, 15 Jul 2015 13:00:00 GMT
     nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
-
+	}
+	if(nTime >= 1436965200 || TestNet()) {	// Wed, 15 Jul 2015 13:00:00 GMT
+	nRewardCoinYear = MAX_MINT_PROOF_OF_STAKEV2;
+	}
+	
     int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365;
 	
 	int64_t inputcoins = nValueIn / COIN;
+	
+	if(nTime < 1436965200 || TestNet()) {	// Wed, 15 Jul 2015 13:00:00 GMT
 	
 	if (inputcoins >= 50000 && inputcoins < 100000 && rand <= 5) {
 		nSubsidy += 5000 * COIN;
@@ -1178,9 +1185,26 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int64_t nValueIn,
 		nSubsidy += 60000 * COIN;
 		LogPrint("creation", "BONUS stake: nSubsidy += 60000 * COIN, inputcoins =%s nCoinAge=%s rand=%s prevHash=%s\n", inputcoins, nCoinAge, rand, prevHash.ToString());
 		}
+	}
 		
+	if(nTime >= 1436965200 || TestNet()) {	// Wed, 15 Jul 2015 13:00:00 GMT
+	
+	if (inputcoins >= 50000 && inputcoins < 100000 && rand <= 5) {
+		nSubsidy += 1000 * COIN;
+		LogPrint("creation", "BONUS stake: nSubsidy += 1000 * COIN, inputcoins =%s nCoinAge=%s rand=%s prevHash=%s\n", inputcoins, nCoinAge, rand, prevHash.ToString());
+		}	
+	else if (inputcoins >= 100000 && inputcoins < 300000 && rand <= 5){
+		nSubsidy += 3000 * COIN;
+		LogPrint("creation", "BONUS stake: nSubsidy += 3000 * COIN, inputcoins =%s nCoinAge=%s rand=%s prevHash=%s\n", inputcoins, nCoinAge, rand, prevHash.ToString());
+		}	
+	else if (inputcoins >= 300000 && rand <= 5){
+		nSubsidy += 12000 * COIN;
+		LogPrint("creation", "BONUS stake: nSubsidy += 12000 * COIN, inputcoins =%s nCoinAge=%s rand=%s prevHash=%s\n", inputcoins, nCoinAge, rand, prevHash.ToString());
+		}
+	}
+	
+	
 	LogPrint("creation", "GetProofOfStakeReward(): create=%s create(raw)=%s nCoinAge=%d prevHash=%s\n", FormatMoney(nSubsidy), nSubsidy, nCoinAge, prevHash.ToString());
-		
 
     return nSubsidy + nFees;
 }
@@ -1854,7 +1878,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         if (!vtx[1].GetCoinAge(txdb, nCoinAge))
             return error("ConnectBlock() : %s unable to get coin age for coinstake", vtx[1].GetHash().ToString());
 
-        int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees, nValueIn, prevHash);
+        int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees, nValueIn, prevHash, nTime);
 
         if (nStakeReward > nCalculatedStakeReward)
             return DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d) nValueIn=%s prevHash=%s", nStakeReward, nCalculatedStakeReward, nValueIn, prevHash.ToString().c_str()));
