@@ -8,7 +8,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 500 BTX input and register on the network
+// Bootup the masternode, look for a 250 000 BTX input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
