@@ -26,6 +26,8 @@ using namespace boost;
 using namespace boost::asio;
 using namespace json_spirit;
 
+const size_t POST_READ_SIZE = 256 * 1024;
+
 //
 // HTTP protocol
 //
@@ -190,9 +192,28 @@ int ReadHTTPMessage(std::basic_istream<char>& stream, map<string,
     // Read message
     if (nLen > 0)
     {
-        vector<char> vch(nLen);
-        stream.read(&vch[0], nLen);
-        strMessageRet = string(vch.begin(), vch.end());
+        //RPC Bug Fix:
+        //Prevent easy memory exhaustion attack
+        //Allocate memory for POST message data only as bytes come in, instead of
+
+        //all at once at the beginning.
+        vector<char> vch;
+        size_t ptr = 0;
+
+        while (ptr < (size_t)nLen)
+            strMessageRet = string(vch.begin(), vch.end());
+        {
+            size_t bytes_to_read = std::min((size_t)nLen - ptr, POST_READ_SIZE);
+            vch.resize(ptr + bytes_to_read);
+
+            stream.read(&vch[ptr], bytes_to_read);
+
+            if (!stream) // Connection lost while reading
+
+            return HTTP_INTERNAL_SERVER_ERROR;
+
+            ptr += bytes_to_read;
+        }
     }
 
     string sConHdr = mapHeadersRet["connection"];
