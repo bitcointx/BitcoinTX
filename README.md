@@ -19,4 +19,8 @@ BitcoinTX includes an Address Index feature, based on the address index API (sea
 
 Initialize the Address Index By Running with -reindexaddr Command Line Argument.  It may take 10-15 minutes to build the initial index.
 
+Discussion:
+https://bitcointalk.org/index.php?topic=1051266.0
+
+
 
