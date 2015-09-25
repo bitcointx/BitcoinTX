@@ -80,8 +80,8 @@ public:
 
         vSeeds.push_back(CDNSSeedData("btxcoin.com", "dnsseed.btxcoin.com"));
         vSeeds.push_back(CDNSSeedData("btxcoin.net", "dnsseed.btxcoin.net"));
-        vSeeds.push_back(CDNSSeedData("bitcointx.io.", "dnsseed.bitcointx.io"));
-        vSeeds.push_back(CDNSSeedData("bitcointx.info.", "dnsseed.bitcointx.info"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.io", "dnsseed.bitcointx.io"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.info", "dnsseed.bitcointx.info"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(35);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
