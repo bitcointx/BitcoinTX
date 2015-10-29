@@ -78,10 +78,10 @@ public:
         assert(hashGenesisBlock == uint256("0x00000449ae58462bbad8d26c7eb0270d332948872cfe97b7d5c42c154bfa5523"));
         assert(genesis.hashMerkleRoot == uint256("0x543528ec7c8617e4816916806d3536b6a22f18907deae54c13c30d725b7d908f"));
 
-        vSeeds.push_back(CDNSSeedData("btxcoin.net", "btxdnsseed1.btxcoin.net"));
-        vSeeds.push_back(CDNSSeedData("btxcoin.net", "btxdnsseed2.btxcoin.net"));
-        vSeeds.push_back(CDNSSeedData("btxcoin.org", "btxdnsseed3.btxcoin.org"));
-        vSeeds.push_back(CDNSSeedData("btxcoin.org", "btxdnsseed4.btxcoin.org"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.info", "btxseed1.bitcointx.info"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.io", "btxseed2.bitcointx.io"));
+        vSeeds.push_back(CDNSSeedData("btxcoin.org", "btxseed3.btxcoin.org"));
+        vSeeds.push_back(CDNSSeedData("btxcoin.net", "btxseed4.btxcoin.net"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(35);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
