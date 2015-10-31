@@ -1,5 +1,5 @@
 
-BitcoinTX development tree
+BitcoinTX development tree for version 2.1.5.
 
 BitcoinTX is a PoS-based cryptocurrency.
 
@@ -21,6 +21,8 @@ Initialize the Address Index By Running with -reindexaddr Command Line Argument.
 
 Discussion:
 https://bitcointalk.org/index.php?topic=1051266.0
+
+Release Notes:
 
 
 
