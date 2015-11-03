@@ -1,9 +1,7 @@
-##BitcoinTX development tree for version 2.1.5.
-===============================
-
+#BitcoinTX development tree for version 2.1.5.
 **BitcoinTX is a PoS-based cryptocurrency.**
 
-####Specifications:
+##Specifications:
 
 * Block Spacing: 60 Seconds
 * Diff Retarget: 2 Blocks
@@ -18,8 +16,7 @@ BitcoinTX is dependent upon libsecp256k1.  BitcoinTX includes an Address Index f
 
 Initialize the Address Index By Running with -reindexaddr Command Line Argument.  It may take 10-15 minutes to build the initial index.
 
-===============================
-#### Release Notes for *v2.1.5 (11/02/2015)*:
+### Release Notes for *v2.1.5 (11/02/2015)*:
 1. Updated src/chainparams.cpp. Added five DNS seeders. Turned ON by default.  Use -dnsseed to turn off.
   * btxseed1.bitcointx.info (New York)
   * btxseed2.bitcointx.io (San Francisco)
@@ -40,11 +37,10 @@ Initialize the Address Index By Running with -reindexaddr Command Line Argument.
 10. Updated src/wallet.cpp. Fix priority calculation in CreateTransaction.
 11. Updated src/rpcprotocol.cpp. prevent easy memory exhaustion attack in rpc. 
 
-**Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
-
-* This version has NOT been fully tested.  Please use at your own risk.
-* DNS seeder nodes maintained and deployed by MCDev.
-* All coding changes performed and reviewed by CrytoVote. Email: CrytoVote@yandex.com.
+##### **Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
+###### This version has NOT been fully tested.  Please use at your own risk.
+###### DNS seeder nodes maintained and deployed by MCDev.
+###### All coding changes performed and reviewed by CrytoVote. Email: CrytoVote@yandex.com.
 
 ####Contact:
 * Wallet Code: CrytoVote@yandex.com.
