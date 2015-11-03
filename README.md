@@ -1,6 +1,5 @@
-
-
 ##BitcoinTX development tree for version 2.1.5.
+===============================
 
 **BitcoinTX is a PoS-based cryptocurrency.**
 
@@ -19,6 +18,7 @@ BitcoinTX is dependent upon libsecp256k1.  BitcoinTX includes an Address Index f
 
 Initialize the Address Index By Running with -reindexaddr Command Line Argument.  It may take 10-15 minutes to build the initial index.
 
+===============================
 #### Release Notes for *v2.1.5 (11/02/2015)*:
 1. Updated src/chainparams.cpp. Added five DNS seeders. Turned ON by default.  Use -dnsseed to turn off.
   * btxseed1.bitcointx.info (New York)
@@ -66,11 +66,8 @@ Initialize the Address Index By Running with -reindexaddr Command Line Argument.
 ## License
 
 ### Code
-
-MIT License: http://mit-license.org/ or see [the `LICENSE` file]
+MIT License: http://bitcointx.mit-license.org/
 
 ### Logo
-
-Copyright 2015, MIT License: http://mit-license.org/ or see [the `LICENSE` file].
 # ![BitcoinTX logo](https://github.com/CryptoDJ/BitcoinTX/blob/master/src/qt/res/images/about.png) 
-
+Copyright 2015, MIT License: http://bitcointx.mit-license.org/
