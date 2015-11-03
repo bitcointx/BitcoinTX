@@ -39,10 +39,11 @@ Initialize the Address Index By Running with -reindexaddr Command Line Argument.
 10. Updated src/wallet.cpp. Fix priority calculation in CreateTransaction.
 11. Updated src/rpcprotocol.cpp. prevent easy memory exhaustion attack in rpc. 
 
-*DNS Seeder Nodes maintained and deployed by MCDev*
-*All coding changes performed and reviewed by CrytoVote. Email: CrytoVote@yandex.com*
-Testing has not been completed.
-**Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
+* This version has NOT been fully tested.  Please use at your own risk.
+* DNS seeder nodes maintained and deployed by MCDev.
+* *All coding changes performed and reviewed by CrytoVote.* Email: CrytoVote@yandex.com
+
+* **Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
 
 ####Discussion:
 * BitcoinTalk.org: https://bitcointalk.org/index.php?topic=1051266.0
