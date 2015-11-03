@@ -1,4 +1,5 @@
 
+
 ##BitcoinTX development tree for version 2.1.5.
 
 **BitcoinTX is a PoS-based cryptocurrency.**
@@ -39,18 +40,37 @@ Initialize the Address Index By Running with -reindexaddr Command Line Argument.
 10. Updated src/wallet.cpp. Fix priority calculation in CreateTransaction.
 11. Updated src/rpcprotocol.cpp. prevent easy memory exhaustion attack in rpc. 
 
+**Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
+
 * This version has NOT been fully tested.  Please use at your own risk.
 * DNS seeder nodes maintained and deployed by MCDev.
-* *All coding changes performed and reviewed by CrytoVote.* Email: CrytoVote@yandex.com
+* All coding changes performed and reviewed by CrytoVote. Email: CrytoVote@yandex.com.
 
-* **Special thanks to SCDeveloper (https://github.com/SCDeveloper/) for item #6-11.**  
+####Contact:
+* Wallet Code: CrytoVote@yandex.com.
+* Network/MN Support: 
+* DNS Seeds: 
 
-####Discussion:
+####Discussions:
 * BitcoinTalk.org: https://bitcointalk.org/index.php?topic=1051266.0
 * Slack: https://btxcoin.slack.com
+
+####Exchanges:
+* C-CEX: https://c-cex.com/index.html?p=btx-btc
 
 ####Build Instructions:
 * *Linux*:  
 * *Windows*:  
 * *MacOS*:  
+
+## License
+
+### Code
+
+MIT License: http://mit-license.org/ or see [the `LICENSE` file]
+
+### Logo
+
+Copyright 2015, MIT License: http://mit-license.org/ or see [the `LICENSE` file].
+# ![BitcoinTX logo](https://github.com/CryptoDJ/BitcoinTX/blob/master/src/qt/res/images/about.png) 
 
