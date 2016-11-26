@@ -15,6 +15,7 @@ using namespace std;
 
 static CCriticalSection cs_nTimeOffset;
 static int64_t nTimeOffset = 0;
+#define BTX_TIMEDATA_MAX_SAMPLES 200
 
 //
 // "Never go to sea with two chronometers; take one or three."
@@ -42,11 +43,15 @@ void AddTimeData(const CNetAddr& ip, int64_t nTime)
     LOCK(cs_nTimeOffset);
     // Ignore duplicates
     static set<CNetAddr> setKnown;
+
+    if (setKnown.size() == BTX_TIMEDATA_MAX_SAMPLES)
+        return;
+
     if (!setKnown.insert(ip).second)
         return;
 
     // Add data
-    static CMedianFilter<int64_t> vTimeOffsets(200,0);
+    static CMedianFilter<int64_t> vTimeOffsets(BTX_TIMEDATA_MAX_SAMPLES,0);
     vTimeOffsets.input(nOffsetSample);
     LogPrintf("Added time data, samples %d, offset %+d (%+d minutes)\n", vTimeOffsets.size(), nOffsetSample, nOffsetSample/60);
 

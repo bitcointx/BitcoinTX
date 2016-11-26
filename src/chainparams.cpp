@@ -78,15 +78,19 @@ public:
         assert(hashGenesisBlock == uint256("0x00000449ae58462bbad8d26c7eb0270d332948872cfe97b7d5c42c154bfa5523"));
         assert(genesis.hashMerkleRoot == uint256("0x543528ec7c8617e4816916806d3536b6a22f18907deae54c13c30d725b7d908f"));
 
-        
+        vSeeds.push_back(CDNSSeedData("bitcointx.info", "btxseed1.bitcointx.info"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.io", "btxseed2.bitcointx.io"));
+        vSeeds.push_back(CDNSSeedData("btxcoin.org", "btxseed3.btxcoin.org"));
+        vSeeds.push_back(CDNSSeedData("btxcoin.net", "btxseed4.btxcoin.net"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.co", "btxseed5.bitcointx.co"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.io", "btxseed6.bitcointx.io"));
+        vSeeds.push_back(CDNSSeedData("bitcointx.io", "btxseed7.bitcointx.io"));
 
-       
-        
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(35);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
-        base58Prefixes[SECRET_KEY] =     list_of(153);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
+        base58Prefixes[PUBKEY_ADDRESS] = boost::assign::list_of(35);
+        base58Prefixes[SCRIPT_ADDRESS] = boost::assign::list_of(85);
+        base58Prefixes[SECRET_KEY] =     boost::assign::list_of(153);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -135,11 +139,11 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(125);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
-        base58Prefixes[SECRET_KEY]     = list_of(239);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
+        base58Prefixes[PUBKEY_ADDRESS] = boost::assign::list_of(125);
+        base58Prefixes[SCRIPT_ADDRESS] = boost::assign::list_of(196);
+        base58Prefixes[SECRET_KEY]     = boost::assign::list_of(239);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
